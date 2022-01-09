@@ -6,22 +6,31 @@ using UnityEngine.UI;
 
 public class PlayerSetupMenuController : MonoBehaviour {
 
-    private TextMeshProUGUI textTitle;
+	[SerializeField]
+	private AudioClip joinClip;
+	[SerializeField]
+	private AudioClip colorClip;
+	[SerializeField]
+	private AudioClip readyClip;
+	private TextMeshProUGUI textTitle;
 	private Button buttonReady;
 	private GameObject panelReady;
 	private GameObject panelMenu;
 	private int playerIndex;
+	private AudioSource audioSource;
 
 	private void Awake() {
 		textTitle = transform.Find("Text Title").GetComponent<TextMeshProUGUI>();
-		panelMenu = transform.Find("Panel Menu").gameObject;
+		panelMenu = transform.Find("Panel Color").gameObject;
 		panelReady = transform.Find("Panel Ready").gameObject;
 		buttonReady = transform.Find("Panel Ready").Find("Button Ready").GetComponent<Button>();
+		audioSource = this.GetComponent<AudioSource>();
 	}
 
 	// Start is called before the first frame update
 	void Start() {
-
+		audioSource.clip = joinClip;
+		audioSource.Play();
 	}
 
     // Update is called once per frame
@@ -37,7 +46,9 @@ public class PlayerSetupMenuController : MonoBehaviour {
 
 	//Assigns a material to the player
 	public void SelectColor(Material mat) {
-		textTitle.color = mat.color;
+		audioSource.clip = colorClip;
+		audioSource.Play();
+		this.GetComponent<Image>().color = mat.color;
 		PlayerConfigurationManager.Instance.SetPlayerColor(playerIndex, mat);
         panelReady.SetActive(true);
 		buttonReady.interactable = true;
@@ -47,7 +58,9 @@ public class PlayerSetupMenuController : MonoBehaviour {
 
 	//Marks the player as ready
     public void ReadyPlayer() {
-        PlayerConfigurationManager.Instance.ReadyPlayer(playerIndex);
+		audioSource.clip = readyClip;
+		audioSource.Play();
+		PlayerConfigurationManager.Instance.ReadyPlayer(playerIndex);
 		buttonReady.gameObject.SetActive(false);
     }
 }

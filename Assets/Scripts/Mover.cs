@@ -13,14 +13,14 @@ public class Mover : MonoBehaviour {
         controller = GetComponent<CharacterController>();
     }
 
-    public void SetInputVector(Vector2 direction) {
-        inputVector = direction;
-    }
-
     void Update() {
         moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= MoveSpeed;
         controller.Move(moveDirection * Time.deltaTime);
     }
+
+	public void SetInputVector(Vector2 direction) {
+		inputVector = direction;
+	}
 }

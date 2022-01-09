@@ -12,24 +12,27 @@ public class PlayerInputHandler : MonoBehaviour {
 	private PlayerConfiguration playerConfig;
     private Mover mover;
 	
-    private void Awake() {
+    void Awake() {
         mover = this.GetComponent<Mover>();
     }
 
-    public void InitializePlayer(PlayerConfiguration config) {
+	private void Start() {
+		playerConfig.Input.SwitchCurrentActionMap("InGame");
+	}
+
+	public void InitializePlayer(PlayerConfiguration config) {
         playerConfig = config;
         config.Input.onActionTriggered += Input_onActionTriggered;
 		playerMesh.material = config.color;
     }   
 
     private void Input_onActionTriggered(CallbackContext obj) {
-        //if (obj.action.name == playerConfig.Input.) {
-            OnMove(obj);
-        //}
+		OnMove(obj);
     }
 
     public void OnMove(CallbackContext context) {
-        if(mover != null)
-            mover.SetInputVector(context.ReadValue<Vector2>());
+		if (mover != null) {
+			mover.SetInputVector(context.ReadValue<Vector2>());
+		}        
     }
 }

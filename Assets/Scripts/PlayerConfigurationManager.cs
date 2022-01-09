@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -29,6 +30,10 @@ public class PlayerConfigurationManager : MonoBehaviour {
 		if (minPlayers > maxPlayers) {
 			minPlayers = maxPlayers;
 			Debug.LogWarning("The minPlayers value was higher than the maxPlayers value. The minPlayers value was changed for that of the maxPlayers value.");
+		}
+		TextMeshProUGUI tmpg = GameObject.Find("Text Instruction").GetComponent<TextMeshProUGUI>();
+		if (tmpg) {
+			tmpg.text = "Press a button to join\nMinimum " + minPlayers + " player(s)\nMaximum " + maxPlayers + " player(s)";
 		}
 	}
 
