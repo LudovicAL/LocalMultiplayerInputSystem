@@ -9,7 +9,7 @@ public class PlayerInputHandler : MonoBehaviour {
 
 	[SerializeField]
 	private MeshRenderer playerMesh;
-	private PlayerConfiguration playerConfig;
+	private PlayerConfiguration playerConfiguration;
     private Mover mover;
 	
     void Awake() {
@@ -17,13 +17,13 @@ public class PlayerInputHandler : MonoBehaviour {
     }
 
 	private void Start() {
-		playerConfig.Input.SwitchCurrentActionMap("InGame");
+		
 	}
 
-	public void InitializePlayer(PlayerConfiguration config) {
-        playerConfig = config;
-        config.Input.onActionTriggered += Input_onActionTriggered;
-		playerMesh.material = config.color;
+	public void InitializePlayer(PlayerConfiguration playerConfiguration) {
+        this.playerConfiguration = playerConfiguration;
+		playerConfiguration.playerInput.onActionTriggered += Input_onActionTriggered;
+		playerMesh.material = playerConfiguration.material;
     }   
 
     private void Input_onActionTriggered(CallbackContext obj) {

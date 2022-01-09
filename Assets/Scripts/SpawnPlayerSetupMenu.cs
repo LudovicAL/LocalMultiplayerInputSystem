@@ -13,10 +13,8 @@ public class SpawnPlayerSetupMenu : MonoBehaviour {
     private void Awake() {
         panelGridLayout = GameObject.Find("Canvas").transform.Find("Panel Grid Layout").gameObject;
 		panelGridLayout.transform.Find("Text Instruction").gameObject.SetActive(false);
-        if(panelGridLayout != null) {
-            GameObject menu = Instantiate(playerSetupMenuPrefab, panelGridLayout.transform);
-            input.uiInputModule = menu.GetComponentInChildren<InputSystemUIInputModule>();
-            menu.GetComponent<PlayerSetupMenuController>().setPlayerIndex(input.playerIndex);
-        }
-    }
+		GameObject menu = Instantiate(playerSetupMenuPrefab, panelGridLayout.transform);
+        input.uiInputModule = menu.GetComponentInChildren<InputSystemUIInputModule>();
+		menu.GetComponent<PlayerSetupMenuController>().initialize(input);
+	}
 }

@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 7655387908717770508}
   - component: {fileID: 3496976609611525632}
   m_Layer: 0
-  m_Name: Panel Player Setup
+  m_Name: PanelPlayerSetup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

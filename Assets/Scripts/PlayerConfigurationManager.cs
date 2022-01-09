@@ -41,17 +41,17 @@ public class PlayerConfigurationManager : MonoBehaviour {
         Debug.Log("Player " + pi.playerIndex + " has joined.");
         pi.transform.SetParent(transform);
 		//If the provided playerIndex is not taken yet
-		if (!playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex)) {
+		if (!playerConfigs.Any(p => p.playerInput.playerIndex == pi.playerIndex)) {
             playerConfigs.Add(new PlayerConfiguration(pi));
         }
     }
 
-    public List<PlayerConfiguration> GetPlayerConfigs() {
+	public List<PlayerConfiguration> GetPlayerConfigs() {
         return playerConfigs;
     }
 
-    public void SetPlayerColor(int index, Material mat) {
-        playerConfigs[index].color = mat;
+    public void SetPlayerColor(int index, Material material) {
+        playerConfigs[index].material = material;
     }
 
     public void ReadyPlayer(int index) {

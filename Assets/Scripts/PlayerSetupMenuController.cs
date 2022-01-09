@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerSetupMenuController : MonoBehaviour {
+
+	public PlayerInput playerInput { get; private set; }
 
 	[SerializeField]
 	private AudioClip joinClip;
@@ -15,8 +18,7 @@ public class PlayerSetupMenuController : MonoBehaviour {
 	private TextMeshProUGUI textTitle;
 	private Button buttonReady;
 	private GameObject panelReady;
-	private GameObject panelMenu;
-	private int playerIndex;
+	private GameObject panelMenu;	
 	private AudioSource audioSource;
 
 	private void Awake() {
@@ -36,12 +38,12 @@ public class PlayerSetupMenuController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-    }
+	}
 
 	//Assigns an index number to the player
-	public void setPlayerIndex(int pi) {
-		playerIndex = pi;
-		textTitle.SetText("Player " + (pi + 1).ToString());
+	public void initialize(PlayerInput pi) {
+		playerInput = pi;
+		textTitle.SetText("Player " + (pi.playerIndex + 1).ToString());
 	}
 
 	//Assigns a material to the player
@@ -49,7 +51,7 @@ public class PlayerSetupMenuController : MonoBehaviour {
 		audioSource.clip = colorClip;
 		audioSource.Play();
 		this.GetComponent<Image>().color = mat.color;
-		PlayerConfigurationManager.Instance.SetPlayerColor(playerIndex, mat);
+		PlayerConfigurationManager.Instance.SetPlayerColor(playerInput.playerIndex, mat);
         panelReady.SetActive(true);
 		buttonReady.interactable = true;
         panelMenu.SetActive(false);
@@ -60,7 +62,7 @@ public class PlayerSetupMenuController : MonoBehaviour {
     public void ReadyPlayer() {
 		audioSource.clip = readyClip;
 		audioSource.Play();
-		PlayerConfigurationManager.Instance.ReadyPlayer(playerIndex);
+		PlayerConfigurationManager.Instance.ReadyPlayer(playerInput.playerIndex);
 		buttonReady.gameObject.SetActive(false);
     }
 }
