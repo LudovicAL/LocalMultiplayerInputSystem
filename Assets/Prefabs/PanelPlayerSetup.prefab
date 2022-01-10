@@ -440,7 +440,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.5
+  m_fontSize: 42.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -769,9 +769,9 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 8068931698475274535}
+    m_SelectOnUp: {fileID: 8068931697350960923}
     m_SelectOnDown: {fileID: 8068931698475274535}
-    m_SelectOnLeft: {fileID: 8068931697350960923}
+    m_SelectOnLeft: {fileID: 8068931698475274535}
     m_SelectOnRight: {fileID: 8068931697350960923}
   m_Transition: 1
   m_Colors:
@@ -904,7 +904,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 77.95
+  m_fontSize: 77.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1197,10 +1197,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 8068931697926228466}
+    m_SelectOnUp: {fileID: 8068931696977415335}
     m_SelectOnDown: {fileID: 8068931697926228466}
     m_SelectOnLeft: {fileID: 8068931696977415335}
-    m_SelectOnRight: {fileID: 8068931696977415335}
+    m_SelectOnRight: {fileID: 8068931697926228466}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.20904237, g: 0.23908025, b: 0.3018868, a: 1}
@@ -1602,9 +1602,9 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 8068931697350960923}
-    m_SelectOnDown: {fileID: 8068931697350960923}
+    m_SelectOnDown: {fileID: 8068931698475274535}
     m_SelectOnLeft: {fileID: 8068931698475274535}
-    m_SelectOnRight: {fileID: 8068931698475274535}
+    m_SelectOnRight: {fileID: 8068931697350960923}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.28870252, g: 0.22815949, b: 0.3207547, a: 1}
@@ -1736,7 +1736,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.5
+  m_fontSize: 42.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1871,7 +1871,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.5
+  m_fontSize: 42.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2091,7 +2091,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.5
+  m_fontSize: 42.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2227,8 +2227,8 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 8068931696977415335}
-    m_SelectOnDown: {fileID: 8068931696977415335}
-    m_SelectOnLeft: {fileID: 8068931697926228466}
+    m_SelectOnDown: {fileID: 8068931697926228466}
+    m_SelectOnLeft: {fileID: 8068931696977415335}
     m_SelectOnRight: {fileID: 8068931697926228466}
   m_Transition: 1
   m_Colors:
