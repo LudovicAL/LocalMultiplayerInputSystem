@@ -45,7 +45,7 @@ public class PlayerSetupMenuController : MonoBehaviour {
 	//Assigns an index number to the player
 	public void initialize(PlayerInput pi) {
 		playerInput = pi;
-		textTitle.SetText("Player " + (pi.playerIndex + 1).ToString());
+		textTitle.SetText("Player " + (pi.playerIndex + 1).ToString() + " - " + pi.currentControlScheme);
 	}
 
 	//Assigns a material to the player

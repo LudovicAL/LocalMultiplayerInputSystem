@@ -36,6 +36,7 @@ public class PlayerInputHandler : MonoBehaviour {
 	//Called when a move command is received
 	public void OnMove(CallbackContext context) {
 		playerMover.SetInputVector(context.ReadValue<Vector2>());
+		Debug.Log(Gamepad.current);
 	}
 
 	//Called when a run command is received

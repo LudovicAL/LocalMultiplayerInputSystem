@@ -22,7 +22,7 @@ public class PlayerConfigurationManager : MonoBehaviour {
             DontDestroyOnLoad(Instance);
             playerConfigs = new List<PlayerConfiguration>();
         }
-    }
+	}
 
 	private void Start() {
 		//The minimum number of players required can not be higher than the maximum number allowed to join
@@ -33,12 +33,12 @@ public class PlayerConfigurationManager : MonoBehaviour {
 		}
 		TextMeshProUGUI tmpg = GameObject.Find("Text Instruction").GetComponent<TextMeshProUGUI>();
 		if (tmpg) {
-			tmpg.text = "Press a button to join\nMinimum " + minPlayers + " player(s)\nMaximum " + maxPlayers + " player(s)";
-		}
+			tmpg.text = "Press your join button\nMinimum " + minPlayers + " player(s)\nMaximum " + maxPlayers + " player(s)";
+		}		
 	}
 
 	public void HandlePlayerJoin(PlayerInput pi) {
-        Debug.Log("Player " + pi.playerIndex + " has joined.");
+        Debug.Log("Player " + pi.playerIndex + " has joined with a " + pi.currentControlScheme + ".");
         pi.transform.SetParent(transform);
 		//If the provided playerIndex is not taken yet
 		if (!playerConfigs.Any(p => p.playerInput.playerIndex == pi.playerIndex)) {

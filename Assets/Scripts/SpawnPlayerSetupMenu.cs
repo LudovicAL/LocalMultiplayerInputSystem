@@ -16,7 +16,5 @@ public class SpawnPlayerSetupMenu : MonoBehaviour {
 		PlayerInput playerInput = this.GetComponent<PlayerInput>();
 		playerInput.uiInputModule = menu.GetComponentInChildren<InputSystemUIInputModule>();
 		menu.GetComponent<PlayerSetupMenuController>().initialize(playerInput);
-		//InputSystemUIInputModule u = menu.GetComponentInChildren<InputSystemUIInputModule>();
-		//u.actionsAsset = playerInput.actions;
 	}
 }

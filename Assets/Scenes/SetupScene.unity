@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press a button to join
+  m_text: Press your join button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -397,7 +397,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -550,12 +550,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
         type: 3}
+      propertyPath: m_JoinBehavior
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
       propertyPath: m_MaxPlayerCount
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
         type: 3}
+      propertyPath: m_JoinAction.m_Reference
+      value: 
+      objectReference: {fileID: -7331130581757625474, guid: c78a3fdbafe1a594a8b8b23a436a1af3,
+        type: 3}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Id
+      value: 3dac5c8a-ce63-44e2-ab3f-bbd90d2bfdf7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Name
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
       propertyPath: m_PlayerLeftEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
@@ -565,13 +596,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
         type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 1d8c8c70-101b-4762-8fc4-5e912b105ba9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 1d8c8c70-101b-4762-8fc4-5e912b105ba9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[2].m_Id
+      value: 1d8c8c70-101b-4762-8fc4-5e912b105ba9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
       propertyPath: m_PlayerLeftEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 310760683}
     - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
         type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/l
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Keyboard>/l
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[2].m_Path
+      value: <Keyboard>/l
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
       propertyPath: m_PlayerLeftEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[2].m_Action
+      value: Join
       objectReference: {fileID: 0}
     - target: {fileID: 2416529860050604540, guid: dc6e6b4c8bfb8784092f816829281f70,
         type: 3}
@@ -658,5 +734,11 @@ PrefabInstance:
       propertyPath: minPlayers
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6741938426324961643, guid: dc6e6b4c8bfb8784092f816829281f70,
+        type: 3}
+      propertyPath: inputActionAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: c78a3fdbafe1a594a8b8b23a436a1af3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc6e6b4c8bfb8784092f816829281f70, type: 3}
