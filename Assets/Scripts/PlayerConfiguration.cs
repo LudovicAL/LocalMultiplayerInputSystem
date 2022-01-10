@@ -8,6 +8,7 @@ public class PlayerConfiguration {
 	public PlayerInput playerInput { get; private set; }
 	public bool isReady { get; set; }
 	public Material material { get; set; }
+	public GameObject avatar;
 
 	//Constructor
 	public PlayerConfiguration(PlayerInput pi) {

@@ -16,16 +16,18 @@ public class PlayerSetupMenuController : MonoBehaviour {
 	[SerializeField]
 	private AudioClip readyClip;
 	private TextMeshProUGUI textTitle;
+	private GameObject panelColor;
+	private GameObject panelReadyUp;
 	private Button buttonReady;
-	private GameObject panelReady;
-	private GameObject panelMenu;	
+	private GameObject panelIsReady;
 	private AudioSource audioSource;
 
 	private void Awake() {
 		textTitle = transform.Find("Text Title").GetComponent<TextMeshProUGUI>();
-		panelMenu = transform.Find("Panel Color").gameObject;
-		panelReady = transform.Find("Panel Ready").gameObject;
-		buttonReady = transform.Find("Panel Ready").Find("Button Ready").GetComponent<Button>();
+		panelColor = transform.Find("Panel Color").gameObject;
+		panelReadyUp = transform.Find("Panel ReadyUp").gameObject;
+		buttonReady = transform.Find("Panel ReadyUp").Find("Button ReadyUp").GetComponent<Button>();
+		panelIsReady = transform.Find("Panel IsReady").gameObject;
 		audioSource = this.GetComponent<AudioSource>();
 	}
 
@@ -52,9 +54,9 @@ public class PlayerSetupMenuController : MonoBehaviour {
 		audioSource.Play();
 		this.GetComponent<Image>().color = mat.color;
 		PlayerConfigurationManager.Instance.SetPlayerColor(playerInput.playerIndex, mat);
-        panelReady.SetActive(true);
+		panelReadyUp.SetActive(true);
 		buttonReady.interactable = true;
-        panelMenu.SetActive(false);
+		panelColor.SetActive(false);
 		buttonReady.Select();
     }
 
@@ -63,6 +65,8 @@ public class PlayerSetupMenuController : MonoBehaviour {
 		audioSource.clip = readyClip;
 		audioSource.Play();
 		PlayerConfigurationManager.Instance.ReadyPlayer(playerInput.playerIndex);
-		buttonReady.gameObject.SetActive(false);
-    }
+		panelReadyUp.SetActive(false);
+		panelIsReady.SetActive(true);
+
+	}
 }

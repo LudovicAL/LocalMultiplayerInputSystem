@@ -21,7 +21,7 @@ public class LevelInitializer : MonoBehaviour {
 	void Start() {
 		panelHorizontalLayout = GameObject.Find("Canvas").transform.Find("Panel Controls Display").Find("Panel Horizontal Layout");
 		foreach (PlayerConfiguration pc in PlayerConfigurationManager.Instance.GetPlayerConfigs()) {
-			//pc.playerInput.SwitchCurrentActionMap("InGame");
+			pc.playerInput.SwitchCurrentActionMap("InGame");
 			SpawnPlayerPrefab(pc);
 			PrepareControlsDisplayPanel(pc);
 		}
@@ -36,38 +36,40 @@ public class LevelInitializer : MonoBehaviour {
 	private void SpawnPlayerPrefab(PlayerConfiguration pc) {
 		GameObject player = Instantiate(playerPrefab, GetRandomSpawnPosition(), Quaternion.identity, gameObject.transform);
 		player.GetComponent<PlayerInputHandler>().InitializePlayer(pc);
+		pc.avatar = player;
 	}
 
 	//Returns a random spawn position inside the spawn zone
 	private Vector3 GetRandomSpawnPosition() {
-		return new Vector3(Random.Range(-spawnZoneRadius, spawnZoneRadius), -0.0f, Random.Range(-spawnZoneRadius, spawnZoneRadius));
+		Vector3 position = new Vector3(Random.Range(-spawnZoneRadius, spawnZoneRadius), playerPrefab.GetComponent<MeshRenderer>().bounds.size.y / 2f, Random.Range(-spawnZoneRadius, spawnZoneRadius));
+		return position;
 	}
 
+	//Prepares for each player their controls display panel in the canvas, populating it with their specific set of controls
 	private void PrepareControlsDisplayPanel(PlayerConfiguration pc) {
+		//Adds a gameObject with a vertical layout group
 		GameObject verticalLayoutContainer = Instantiate(panelPlayerControlsVerticalLayout, panelHorizontalLayout);
 		verticalLayoutContainer.GetComponent<Image>().color = pc.material.color;
-		verticalLayoutContainer.transform.Find("Text Title").GetComponent<TextMeshProUGUI>().text = "Player " + pc.playerInput.playerIndex;
+		verticalLayoutContainer.transform.Find("Text Title").GetComponent<TextMeshProUGUI>().text = "Player " + (pc.playerInput.playerIndex + 1).ToString() + " - " + pc.playerInput.currentControlScheme;
+		//Adds every controls of the player in the vertical layout group
 		Transform verticalLayoutPanel = verticalLayoutContainer.transform.Find("Panel Vertical Layout");
 		foreach (InputAction ia in pc.playerInput.currentActionMap) {
 			GameObject playerControlContainer = Instantiate(panelPlayerControl, verticalLayoutPanel);
+			//Sets the name of the control
 			playerControlContainer.transform.Find("Text Control Name").gameObject.GetComponent<TextMeshProUGUI>().text = ia.name;
-			string controlName = "";
-			if (ia.controls.Count == 4 && pc.playerInput.currentControlScheme == "Gamepad") {
-				controlName = ia.controls[0].parent.displayName;
-				InputControl pc2 = ia.controls[0].parent;
-			} else if (ia.controls.Count > 1) {
-				bool firstPass = true;
-				foreach (InputControl ic in ia.controls) {
-					if (!firstPass) {
-						controlName += " | ";
-					}
-					controlName += ic.displayName;
-					firstPass = false;
-				}
+			//Sets the button for the control
+			if (ia.GetBindingDisplayString() != null && ia.GetBindingDisplayString() != "") {
+				playerControlContainer.transform.Find("Text Control Button").gameObject.GetComponent<TextMeshProUGUI>().text = ia.GetBindingDisplayString();
+			} else if (pc.playerInput.currentControlScheme == "Gamepad") {
+				playerControlContainer.transform.Find("Text Control Button").gameObject.GetComponent<TextMeshProUGUI>().text = ia.controls[0].parent.displayName;
 			} else {
-				controlName = ia.controls[0].displayName;
+				int bindingIndex = ia.GetBindingIndex(group: pc.playerInput.currentControlScheme) - 1;
+				if (bindingIndex >= 0) {
+					playerControlContainer.transform.Find("Text Control Button").gameObject.GetComponent<TextMeshProUGUI>().text = ia.GetBindingDisplayString(bindingIndex);
+				} else {
+					Debug.LogWarning("The binding for the action " + ia.name + " could not be found.");
+				}
 			}
-			playerControlContainer.transform.Find("Text Control Button").gameObject.GetComponent<TextMeshProUGUI>().text = controlName;
 		}
 	}
 }
