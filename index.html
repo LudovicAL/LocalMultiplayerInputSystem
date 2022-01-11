@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | LocalMultiplayerInputSystem</title>
+    <title>Unity WebGL Player | InputSystemTestProject</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -18,9 +18,32 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">LocalMultiplayerInputSystem</div>
+        <div id="unity-build-title">InputSystemTestProject</div>
+        <div id="Instructions">
+        <b>
+        This multiplayer game can host up to 4 players (keyboard, mouse and gamepads) and uses the controls listed below.
+        <br><br>
+        Keyboard controls:
+        <ul>
+          <li>Move   : W/A/S/D</li>
+          <li>Click  : Enter</li>
+          <li>Info   : Tab</li>
+        </ul>
+        Mouse controls:
+        <ul>
+          <li>Move   : Left button</li>
+          <li>Click  : Left button</li>
+          <li>Info   : Right button</li>
+        </ul>
+        Gamepad controls:
+        <ul>
+          <li>Move  : Left stick</li>
+          <li>Click : South button</li>
+          <li>Info  : Start button</li>
+        </ul>
+        <b>
+      </div>
       </div>
     </div>
     <script>
@@ -63,8 +86,8 @@
         codeUrl: buildUrl + "/Demo.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Banditos",
-        productName: "LocalMultiplayerInputSystem",
-        productVersion: "0.1",
+        productName: "InputSystemTestProject",
+        productVersion: "1.0",
         showBanner: unityShowBanner,
       };
 
