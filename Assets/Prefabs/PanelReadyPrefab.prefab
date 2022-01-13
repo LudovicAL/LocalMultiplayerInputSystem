@@ -136,7 +136,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: -3096167590593661557, guid: 23f923b3d394c834a8c300bfeb95fb53, type: 3}
   m_TrackedDevicePositionAction: {fileID: -8848170899105334887, guid: 23f923b3d394c834a8c300bfeb95fb53, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: -2990370224491041129, guid: 23f923b3d394c834a8c300bfeb95fb53, type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
 --- !u!1 &2774858147963472644
 GameObject:
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 62.25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61.4
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
